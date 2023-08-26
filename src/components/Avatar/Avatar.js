@@ -90,7 +90,7 @@ function Avatar({ selectedItems, handleRandomize }) {
             RANDOMIZE
           </button>
           <button className="download-btn" onClick={handleExport}>
-            <img src="./download-icon.png" height={20} />
+            <img src="./download-icon.png" height={20} alt="download" />
           </button>
         </div>
       </div>
