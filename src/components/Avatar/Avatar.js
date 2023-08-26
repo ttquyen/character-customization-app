@@ -22,12 +22,25 @@ function Avatar({ selectedItems, handleRandomize }) {
   const noseImg = new window.Image();
   noseImg.src = `./character/noses/1.png`;
   imageArr.push(noseImg);
+  const stageRef = React.useRef(null);
+  const handleExport = () => {
+    const uri = stageRef.current.toDataURL(); //base64
+    downloadURI(uri, "character.png");
+  };
+  function downloadURI(uri, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
   return (
     <div>
       <div className="avatar-wrapper">
         <div className="avatar">
-          <Stage width={IMG_W} height={IMG_H}>
+          <Stage width={IMG_W} height={IMG_H} ref={stageRef}>
             <Layer>
               <Group>
                 {imageArr
@@ -75,6 +88,9 @@ function Avatar({ selectedItems, handleRandomize }) {
         <div>
           <button className="random-btn" onClick={handleRandomize}>
             RANDOMIZE
+          </button>
+          <button className="download-btn" onClick={handleExport}>
+            <img src="./download-icon.png" height={20} />
           </button>
         </div>
       </div>

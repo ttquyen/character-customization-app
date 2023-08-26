@@ -1,9 +1,9 @@
 .avatar-wrapper {
-  /* background-color: aqua; */
   padding: 25px 15px;
   border: #ffab00 solid;
   border-width: 4px 5px 4px 6px;
   border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+  position: relative;
 }
 
 .avatar {
@@ -43,6 +43,19 @@
 .random-btn:hover:after {
   top: 0px;
   left: 0px;
+}
+.download-btn {
+  border: none;
+  background-color: #ffecb3;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border-radius: 30%;
+}
+.download-btn:hover {
+  background-color: #e6dd79d4;
+  transition: 0.2s;
+  border-radius: 30%;
 }
 
 @media (max-width: 500px) {
