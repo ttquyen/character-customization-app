@@ -36,7 +36,7 @@ function Avatar({ selectedItems, handleRandomize }) {
         </div>
         <div>
           <button className="random-btn" onClick={handleRandomize}>
-            RAMDOMIZE
+            RANDOMIZE
           </button>
         </div>
       </div>
