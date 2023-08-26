@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     handleRandomize();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [partGroup]);
+  }, []);
   const handleRandomize = () => {
     const randomItems = { ...selectedItems };
     for (let o in randomItems) {
