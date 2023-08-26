@@ -8,70 +8,57 @@ function App() {
     body: 17,
     eyes: 17,
     hair: 73,
-    mouth: 24,
+    facial_hair: 17,
+    mouths: 24,
     eyebrows: 15,
-    hat: 28,
+    hats: 28,
     glasses: 17,
-    clothing1: 5,
-    clothing2: 5,
-    clothing3: 9,
+    earrings: 32,
+    neckwear: 18,
+    layer_1: 5,
+    layer_2: 5,
+    layer_3: 9,
   };
-  const [body, setBody] = useState(0);
-  const [eyes, setEyes] = useState(2);
-  const [hair, setHair] = useState(0);
-  const [mouth, setMouth] = useState(2);
-  const [eyebrows, setEyebrows] = useState(2);
-  const [hat, setHat] = useState(0);
-  const [glasses, setGlasses] = useState(2);
-  const [clothing1, setClothing1] = useState(0);
-  const [clothing2, setClothing2] = useState(0);
-  const [clothing3, setClothing3] = useState(0);
-  const [partGroup, setPartGroup] = useState(Object.keys(total));
-  const [selectedItems, setselectedItems] = useState({
-    body: 0,
-    eyes: 0,
-    hair: 0,
-    mouth: 0,
-    eyebrows: 0,
-    hat: 0,
-    glasses: 0,
-    clothing1: 0,
-    clothing2: 0,
-    clothing3: 0,
+
+  const partGroup = Object.keys(total);
+  const [selectedItems, setSelectedItems] = useState({
+    body: 1,
+    eyes: 1,
+    hair: 1,
+    facial_hair: 1,
+    mouths: 1,
+    eyebrows: 1,
+    hats: 1,
+    glasses: 1,
+    earrings: 1,
+    neckwear: 1,
+    layer_1: 1,
+    layer_2: 1,
+    layer_3: 1,
   });
   useEffect(() => {
     handleRandomize();
-    console.log(total[partGroup[1]]);
   }, []);
   const handleRandomize = () => {
     const randomItems = { ...selectedItems };
-
-    for (let [key, value] of Object.entries(randomItems)) {
-      value = Math.floor(Math.random() * total[key]);
+    for (let o in randomItems) {
+      randomItems[o] = Math.floor(Math.random() * total[o]);
     }
-    setselectedItems(randomItems);
+    setSelectedItems(randomItems);
   };
   const handleSelectItem = (a, b) => {
-    console.log(a, b);
+    setSelectedItems({ ...selectedItems, [b]: a });
   };
 
   return (
     <div className="App">
       <div className="title">CHARACTER</div>
-      <div className="sub-title">🛠️ USTOMIZATION 🛠️</div>
+      <div className="sub-title">CUSTOMIZATION 👌 </div>
       <div className="divider"></div>
-      <div className="avata-group">
+      <div className="avatar-group">
         <Avatar
-          body={body}
-          eyes={eyes}
-          hair={hair}
-          clothing1={clothing1}
-          clothing2={clothing2}
-          clothing3={clothing3}
-          mouth={mouth}
-          eyebrows={eyebrows}
-          hat={hat}
-          glasses={glasses}
+          selectedItems={selectedItems}
+          handleRandomize={handleRandomize}
         />
         <PartGroup
           partGroup={partGroup}

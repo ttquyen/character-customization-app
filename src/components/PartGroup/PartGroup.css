@@ -1,0 +1,30 @@
+.group-wrapper {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.list-section {
+  background-color: #ffecb3;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+}
+@media (max-width: 500px) {
+  .list-section {
+    margin: 10px;
+  }
+}
+
+.list-title {
+  color: #ffab00;
+  font-style: italic;
+  text-transform: capitalize;
+  width: fit-content;
+  transform: rotate(2deg);
+  margin: 15px;
+  padding: 5px;
+  box-shadow: 2px 4px 0 #ffab00;
+}
+/* #e6dd79d4 */
